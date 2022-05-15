@@ -32,7 +32,7 @@ let n_pos = pos.filter(p => p !== curr_pos);
 // Tutorial element
 const tutorial_el = `
 <div class="tutorial">
-    <h4>Baca penunjuk arah dan carilah jalan tercepat sampai arah tujuan sebelum 4 detik!</h4>
+    <h4>Baca penunjuk arah dan carilah jalan tercepat sampai arah tujuan sebelum 5 detik!</h4>
     <h5 style="margin-top: -1rem; font-weight: thin;">Klik bagian kanan atau kiri untuk memutar lingkaran.</h5>
 </div>
 `;
@@ -56,7 +56,7 @@ play_btn.addEventListener('click', function () {
     gameover_reason.timeout = false;
     gameover_reason.wrong_way = false;
     score.innerHTML = '0';
-    time.innerHTML = '2';
+    time.innerHTML = '5';
     deg = 0
     circle_element.style.transform = `rotate(${0}deg)`
 
@@ -134,7 +134,7 @@ function rotate(v, setter) {
 
     if (position === n_pos) {
         // Reset Time
-        time.innerHTML = '2';
+        time.innerHTML = '5';
 
         // Add SCore
         score.innerHTML = `${parseInt(score.innerHTML) + 1}`;

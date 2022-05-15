@@ -29,6 +29,16 @@ let pos = ['atas', 'kanan', 'bawah', 'kiri'];
 let pos_f = pos.filter(p => p !== curr_pos);
 let n_pos = pos.filter(p => p !== curr_pos);
 
+// Tutorial element
+const tutorial_el = `
+<div class="tutorial">
+    <h4>Baca penunjuk arah dan carilah jalan tercepat sampai arah tujuan sebelum 4 detik!</h4>
+    <h5 style="margin-top: -1rem; font-weight: thin;">Klik bagian kanan atau kiri untuk memutar lingkaran.</h5>
+</div>
+`;
+
+gameover_msg.innerHTML = tutorial_el;
+
 // Gameover indicator
 let gameover = false;
 let gameover_reason = {
@@ -46,7 +56,7 @@ play_btn.addEventListener('click', function () {
     gameover_reason.timeout = false;
     gameover_reason.wrong_way = false;
     score.innerHTML = '0';
-    time.innerHTML = '5';
+    time.innerHTML = '2';
     deg = 0
     circle_element.style.transform = `rotate(${0}deg)`
 
@@ -74,11 +84,11 @@ play_btn.addEventListener('click', function () {
             title_menu.innerHTML = '<h2>GAME OVER</h2>';
 
             if (gameover_reason.timeout) {
-                gameover_msg.innerHTML = '<h2>TIMEOUT!</h2>'
+                gameover_msg.innerHTML = '<h2>TIMEOUT!</h2>' + tutorial_el;
             }
 
             if (gameover_reason.wrong_way) {
-                gameover_msg.innerHTML = '<h2>WRONG WAY!</h2>'
+                gameover_msg.innerHTML = '<h2>WRONG WAY!</h2>' + tutorial_el;
             }
 
             gameover_hs.innerHTML = `
@@ -124,7 +134,7 @@ function rotate(v, setter) {
 
     if (position === n_pos) {
         // Reset Time
-        time.innerHTML = '5';
+        time.innerHTML = '2';
 
         // Add SCore
         score.innerHTML = `${parseInt(score.innerHTML) + 1}`;
